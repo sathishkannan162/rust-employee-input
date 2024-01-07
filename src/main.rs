@@ -134,7 +134,7 @@ fn main() {
                 match department_employees {
                     Some(value) => {
                         for (index, employee) in value.iter().enumerate() {
-                            println!("{index}. {employee}");
+                            println!("{}. {employee}", index + 1);
                         }
                     }
                     None => {
