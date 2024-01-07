@@ -102,18 +102,14 @@ fn main() {
                 }
             };
             if choice == 1 {
-                let mut i = 1;
                 department_employee_map.iter().for_each(|(_key, value)| {
-                    value.into_iter().for_each(|employee| {
-                        println!("{i}. {employee}");
-                        i += 1;
+                    value.iter().enumerate().for_each(|(index, employee)| {
+                        println!("{index}. {employee}");
                     });
                 });
             }
             if choice == 2 {
                 println!("Choose your department");
-                let mut i = 1;
-
                 for (index, department) in departments.iter().enumerate() {
                     println!("{}: {department}", index + 1);
                 }
@@ -137,10 +133,8 @@ fn main() {
 
                 match department_employees {
                     Some(value) => {
-                        let mut i = 1;
-                        for employee in value {
-                            println!("{i}. {employee}");
-                            i += 1;
+                        for (index, employee) in value.iter().enumerate() {
+                            println!("{index}. {employee}");
                         }
                     }
                     None => {
